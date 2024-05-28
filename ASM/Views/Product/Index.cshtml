@@ -1,0 +1,191 @@
+﻿@model IEnumerable<ProductModel>
+
+@{
+    Layout = "~/Views/Users/_layoutClient.cshtml";
+}
+<link href="~/css/product.css" rel="stylesheet" />
+<link href="~/client/theme.hstatic.net/200000291373/1000688425/14/styles7944.css?v=124"
+      rel="stylesheet"
+      type="text/css"
+      media="all" />
+
+<!--+++++++++++++++++++++++++  JS ++++++++++++++++++++++++-->
+<script src="~/client/theme.hstatic.net/200000291373/1000688425/14/jquery.min.1.11.07944.js?v=124"
+        type="text/javascript"></script>
+<script>
+    var template = "collection";
+    var formatMoney = "{{amount}}₫";
+    var proT = "Tất cả sản phẩm";
+    var proL = window.location.href;
+</script>
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Products" />
+<meta property="og:image"
+      content="http://theme.hstatic.net/200000291373/1000688425/14/share_fb_home.jpg?v=124" />
+<meta property="og:image:secure_url"
+      content="https://theme.hstatic.net/200000291373/1000688425/14/share_fb_home.jpg?v=124" />
+<meta property="og:description" content="Tất cả sản phẩm" />
+<meta property="og:url"
+      content="https://chicken-run.myharavan.com/collections/all" />
+<meta property="og:site_name" content="Chicken Run" />
+
+<!-- SEO META DESCRIPTION -->
+<meta name="description" content="Tất cả sản phẩm" />
+<!-- END SEO META DESCRIPTION -->
+<!-- SEO PAGI -->
+
+<meta href="all4658.html?page=2" rel="next" />
+<!-- END SEO PAGI -->
+
+<script type="text/javascript">
+    //<![CDATA[
+    if (typeof Haravan === "undefined") {
+        Haravan = {};
+    }
+    Haravan.culture = "vi-VN";
+    Haravan.shop = "chicken-run.myharavan.com";
+    Haravan.theme = {
+        name: "Chicken Run V1.3",
+        id: 1000688425,
+        role: "main",
+    };
+    Haravan.domain = "chicken-run.myharavan.com";
+    //]]>
+</script>
+<script defer
+        src="~/client/stats.hstatic.net/beacon.min.js"
+        hrv-beacon-t="200000291373"></script>
+<style>
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+</style>
+<script type="text/javascript">
+    window.HaravanAnalytics = window.HaravanAnalytics || {};
+    window.HaravanAnalytics.meta = window.HaravanAnalytics.meta || {};
+    window.HaravanAnalytics.meta.currency = "VND";
+    var meta = { page: { pageType: "collection" } };
+    for (var attr in meta) {
+        window.HaravanAnalytics.meta[attr] = meta[attr];
+    }
+    window.HaravanAnalytics.AutoTrack = true;
+</script>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right collection-content-right">
+                <div class="content-product-list">
+                    @foreach (var item in Model)
+                    {
+                        <div class="product-loop">
+                            <div class="product-block product-resize"
+                                 data-value="coke-zero-330ml">
+                                <div class="product-img"
+                                     data-link="/products/coke-zero-330ml">
+                                    <a href="javascript:void(0);"
+                                       title="COKE ZERO 330ML"
+                                       class="image-resize ratiobox">
+                                        <picture>
+                                            <img class="lazyload img-loop"
+                                                 data-sizes="auto"
+                                                 data-src="https://product.hstatic.net/200000291373/product/5_d2293e415c6142949f9dc6eaee0bbf6f_dc28a94958c145e2ac484bb6662d0c15_5dd6cfd760674f8ea8c435ded66d8c28_grande.png"
+                                                 data-lowsrc="https://product.hstatic.net/200000291373/product/5_d2293e415c6142949f9dc6eaee0bbf6f_dc28a94958c145e2ac484bb6662d0c15_5dd6cfd760674f8ea8c435ded66d8c28_grande.png"
+                                                 src="@Html.DisplayFor(modelItem => item.Image)"
+                                                 alt=" COKE ZERO 330ML " />
+                                        </picture>
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <h3 class="product-name"> 
+                                            <div class="product-action">
+                                                <div class="box-product-prices">
+                                                    <div class="product-price">
+                                                        <span>@Html.DisplayFor(modelItem => item.Price)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="button-add">
+                                                    <button type="submit"
+                                                            class="action pro-btn-order"
+                                                            data-link="/products/coke-zero-330ml">
+                                                        Đặt món
+                                                    </button>
+                                                </div>
+                                            </div>
+                                    </h3>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="sortpagibar pagi clearfix text-center">
+                    <div id="pagination" class="clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="page-node current">1</span>
+
+                            <a class="page-node" href="all4658.html?page=2">2</a>
+
+                            <a class="page-node" href="all9ba9.html?page=3">3</a>
+
+                            <a class="next" href="all4658.html?page=2">
+                                <svg version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     x="0px"
+                                     y="0px"
+                                     viewBox="0 0 31 10"
+                                     style="
+                              enable-background: new 0 0 31 10;
+                              width: 31px;
+                              height: 10px;
+                            "
+                                     xml:space="preserve">
+                                <polygon points="31,5 25,0 25,4 0,4 0,6 25,6 25,10 "></polygon>
+                          </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-left collection-sidebar-left">
+                <div class="collection-sidebar-sticky">
+                    <div class="sidebar-group sidebar-group-linklist">
+                        <ul class="menuList-links">
+                            <li class="">
+                                <a href="crunchy.html" title="Gà chiên"><span>Gà chiên</span></a>
+                            </li>
+
+                            <li class="">
+                                <a href="chicken-meal.html" title="Thịt gà"><span>Thịt gà</span></a>
+                            </li>
+
+                            <li class="">
+                                <a href="grilled-chicken.html" title="Gà nướng"><span>Gà nướng</span></a>
+                            </li>
+
+                            <li class="">
+                                <a href="crunchy.html" title="Gà hấp"><span>Gà hấp</span></a>
+                            </li>
+
+                            <li class="">
+                                <a href="nuoc-uong.html" title="Nước uống"><span>Nước uống</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-group box_image visible-lg visible-md">
+                        <div class="banner">
+                            <a href="#" aria-label="">
+                                <img class="lazyload"
+                                     data-src="../../theme.hstatic.net/200000291373/1000688425/14/collection_banner_image7944.jpg?v=124"
+                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                                     alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

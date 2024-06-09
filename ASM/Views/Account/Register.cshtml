@@ -1,0 +1,38 @@
+﻿@* @model ASM.Models.User
+
+<form asp-action="Register" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+    </div>
+    <div>
+        <label asp-for="Gender"></label>
+        <input asp-for="Gender" />
+    </div>
+    <div>
+        <label asp-for="DateOfBirth"></label>
+        <input asp-for="DateOfBirth" type="date" />
+    </div>
+    <div>
+        <label asp-for="Type"></label>
+        <input asp-for="Type" />
+    </div>
+    <button type="submit">Đăng ký</button>
+</form>
+ *@

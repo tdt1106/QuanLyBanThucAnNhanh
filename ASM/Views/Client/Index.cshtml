@@ -1,10 +1,219 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Product>
+ 
+
 @{
     Layout = "~/Views/Users/_layoutClient.cshtml";
 }
 
-<h1>ĐÂY LÀ CLIENT </h1>
+
+<section id="home-search" class="section-search">
+    <div class="container">
+        <div class="search-box wpo-wrapper-search">
+            <form action="https://chicken-run.myharavan.com/search"
+                  class="searchform searchform-categoris ultimate-search">
+                <div class="wpo-search-inner">
+                    <input type="hidden" name="type" value="product" />
+                    <input required=""
+                           id="inputSearchAuto"
+                           name="q"
+                           maxlength="40"
+                           autocomplete="off"
+                           class="searchinput input-search search-input"
+                           type="text"
+                           size="20"
+                           placeholder="Tìm món..."
+                           aria-label="Search" />
+                </div>
+                <button type="submit"
+                        class="btn-search btn"
+                        id="search-header-btn"
+                        aria-label="Tìm kiếm">
+                    <svg version="1.1"
+                         class="svg search"
+                         xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px"
+                         y="0px"
+                         viewBox="0 0 24 27"
+                         style="enable-background: new 0 0 24 27"
+                         xml:space="preserve">
+                    <path d="M10,2C4.5,2,0,6.5,0,12s4.5,10,10,10s10-4.5,10-10S15.5,2,10,2z M10,19c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S13.9,19,10,19z"></path>
+                    <rect x="17"
+                          y="17"
+                          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -9.2844 19.5856)"
+                          width="4"
+                          height="8"></rect>
+                  </svg>
+                </button>
+            </form>
+            <div id="ajaxSearchResults"
+                 class="smart-search-wrapper ajaxSearchResults"
+                 style="display: none">
+                <div class="resultsContent"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="home-tablist" class="section section-tablist">
+    <div class="container-fluid">
+        <div class="wrapper-heading">
+            <h2 class="has-line">Thực đơn ngon - Đặt món ngay</h2>
+        </div>
+
+        <div class="home-tablist--nav">
+            <ul>
+                <li class="active">
+                    <a data-handle="/collections/all"
+                       href="javascript:void(0);"
+                       class="">Tất cả</a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/crunchy"
+                       href="javascript:void(0);"
+                       class="">
+                        Gà chiên
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/grilled-chicken"
+                       href="javascript:void(0);"
+                       class="">
+                        Gà nướng
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/chicken-meal"
+                       href="javascript:void(0);"
+                       class="">
+                        Thịt gà
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/grilled-chicken"
+                       href="javascript:void(0);"
+                       class="">
+                        Gà hấp
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/strips"
+                       href="javascript:void(0);"
+                       class="">
+                        Chân gà
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/tandoori"
+                       href="javascript:void(0);"
+                       class="">
+                        Khoai tây chiên
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/spicy"
+                       href="javascript:void(0);"
+                       class="">
+                        Gia vị
+                    </a>
+                </li>
+
+                <li>
+                    <a data-handle="/collections/nuoc-uong"
+                       href="javascript:void(0);"
+                       class="">
+                        Nước uống
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section> 
+  
+ <div class="main-content">
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right collection-content-right">
+                 <div class="content-product-list">
+                     @foreach (var item in Model)
+                     {
+                         <div class="product-loop">
+                             <div class="product-block product-resize"
+                                  data-value="coke-zero-330ml">
+                                 <div class="product-img"
+                                      data-link="/products/coke-zero-330ml">
+                                     <a href="/Product/Details/@item.Id" title="@item.Name" class="image-resize ratiobox">
+                                         <picture>
+                                             <img class="lazyload img-loop"
+                                                  data-sizes="auto"
+                                                  data-src="https://product.hstatic.net/200000291373/product/5_d2293e415c6142949f9dc6eaee0bbf6f_dc28a94958c145e2ac484bb6662d0c15_5dd6cfd760674f8ea8c435ded66d8c28_grande.png"
+                                                  data-lowsrc="https://product.hstatic.net/200000291373/product/5_d2293e415c6142949f9dc6eaee0bbf6f_dc28a94958c145e2ac484bb6662d0c15_5dd6cfd760674f8ea8c435ded66d8c28_grande.png"
+                                                  src="@Html.DisplayFor(modelItem => item.Image)"
+                                                  alt=" COKE ZERO 330ML " />
+                                         </picture>
+                                         <a href="/Product/Details/@item.Id" title="@item.Name">@item.Name</a>
+                                     </a>
+                                 </div>
+                                 <div class="product-detail">
+                                     <h3 class="product-name">
+                                         <div class="product-action">
+                                             <div class="box-product-prices">
+                                                 <div class="product-price">
+                                                     <span>@Html.DisplayFor(modelItem => item.Price)</span>
+                                                 </div>
+                                             </div>
+                                             <div class="button-add">
+                                                 <button type="submit"
+                                                         class="action pro-btn-order"
+                                                         data-link="/products/coke-zero-330ml">
+                                                     Đặt món
+                                                 </button>
+                                             </div>
+                                         </div>
+                                     </h3>
+
+                                 </div>
+                             </div>
+                         </div>
+                     }
+                 </div>
+                 <div class="sortpagibar pagi clearfix text-center">
+                     <div id="pagination" class="clearfix">
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                             <span class="page-node current">1</span>
+
+                             <a class="page-node" href="all4658.html?page=2">2</a>
+
+                             <a class="page-node" href="all9ba9.html?page=3">3</a>
+
+                             <a class="next" href="all4658.html?page=2">
+                                 <svg version="1.1"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                                      x="0px"
+                                      y="0px"
+                                      viewBox="0 0 31 10"
+                                      style="
+                               enable-background: new 0 0 31 10;
+                               width: 31px;
+                               height: 10px;
+                             "
+                                      xml:space="preserve">
+                                 <polygon points="31,5 25,0 25,4 0,4 0,6 25,6 25,10 "></polygon>
+                           </svg>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+             </div> 
+         </div>
+     </div>
+ </div>   

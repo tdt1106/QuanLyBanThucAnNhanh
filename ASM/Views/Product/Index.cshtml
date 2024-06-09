@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProductModel>
+﻿@model IEnumerable<Product>
 
 @{
     Layout = "~/Views/Users/_layoutClient.cshtml";
@@ -10,6 +10,13 @@
       media="all" />
 
 <!--+++++++++++++++++++++++++  JS ++++++++++++++++++++++++-->
+@* InvalidOperationException: The model item passed into the ViewDataDictionary is of type 
+
+'System.Collections.Generic.List`1[ASM.Models.Product]', but this ViewDataDictionary instance
+requires a model item of type 'System.Collections.Generic.IEnumerable`1[ASM.Models.ProductModel]'. *@
+ @* lỗi khác Product và ProductModel 
+     --> fix: sửa @model IEnumerable<Product>
+ *@
 <script src="~/client/theme.hstatic.net/200000291373/1000688425/14/jquery.min.1.11.07944.js?v=124"
         type="text/javascript"></script>
 <script>
@@ -18,7 +25,7 @@
     var proT = "Tất cả sản phẩm";
     var proL = window.location.href;
 </script>
-
+  
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Products" />
 <meta property="og:image"
@@ -83,9 +90,7 @@
                                  data-value="coke-zero-330ml">
                                 <div class="product-img"
                                      data-link="/products/coke-zero-330ml">
-                                    <a href="javascript:void(0);"
-                                       title="COKE ZERO 330ML"
-                                       class="image-resize ratiobox">
+                                    <a href="/Product/Details/@item.Id" title="@item.Name" class="image-resize ratiobox">
                                         <picture>
                                             <img class="lazyload img-loop"
                                                  data-sizes="auto"
@@ -94,6 +99,7 @@
                                                  src="@Html.DisplayFor(modelItem => item.Image)"
                                                  alt=" COKE ZERO 330ML " />
                                         </picture>
+                                        <a href="/Product/Details/@item.Id" title="@item.Name">@item.Name</a>
                                     </a>
                                 </div>
                                 <div class="product-detail">

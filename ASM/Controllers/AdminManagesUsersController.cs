@@ -9,23 +9,22 @@ using ASM.Models;
 
 namespace ASM.Controllers
 {
-    public class AdminProductController : Controller
+    public class AdminManagesUsersController : Controller
     {
         private readonly DataContext _context;
 
-        public AdminProductController(DataContext context)
+        public AdminManagesUsersController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: AdminProduct
+        // GET: AdminManagesUsers
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Products.Include(p => p.Category); 
-            return View(await dataContext.ToListAsync());
+            return View(await _context.Users.ToListAsync());
         }
 
-        // GET: AdminProduct/Details/5
+        // GET: AdminManagesUsers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,43 +32,39 @@ namespace ASM.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .Include(p => p.Category)
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(user);
         }
 
-        // GET: AdminProduct/Create
+        // GET: AdminManagesUsers/Create
         public IActionResult Create()
         {
-            ViewData["CategoryName"] = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
 
-        // Post : THÊM MỚI GET :LẤY LÊN
-        // POST: AdminProduct/Create
+        // POST: AdminManagesUsers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Description,Image,Count,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,Phone,Password,Address,Gender,DateOfBirth,type")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId); 
-            return View(product);
+            return View(user);
         }
 
-        // GET: AdminProduct/Edit/5
+        // GET: AdminManagesUsers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +72,22 @@ namespace ASM.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryName"] = new SelectList(_context.Categories, "Id", "Name");
-            return View(product);
+            return View(user);
         }
 
-        // POST: AdminProduct/Edit/5
+        // POST: AdminManagesUsers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Description,Image,Count,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Phone,Password,Address,Gender,DateOfBirth,type")] User user)
         {
-            if (id != product.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -102,12 +96,12 @@ namespace ASM.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -116,14 +110,12 @@ namespace ASM.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index)); 
+                return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId);
-
-            return View(product);
+            return View(user);
         }
 
-        // GET: AdminProduct/Delete/5
+        // GET: AdminManagesUsers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,35 +123,34 @@ namespace ASM.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .Include(p => p.Category)
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(user);
         }
 
-        // POST: AdminProduct/Delete/5
+        // POST: AdminManagesUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Products.Remove(product);
+                _context.Users.Remove(user);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Products.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }
